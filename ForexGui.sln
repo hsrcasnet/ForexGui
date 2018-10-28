@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2011
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1F327328-50EB-4DEB-8451-6E12A2C7CD62}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forex.UI", "Forex.UI\Forex.UI.csproj", "{8B2521B4-9517-4418-AB32-88AED2C0484D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forex.Service", "Forex.Service\Forex.Service.csproj", "{094B861C-DA08-4CFE-8727-495A7B3A25A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B2521B4-9517-4418-AB32-88AED2C0484D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B2521B4-9517-4418-AB32-88AED2C0484D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B2521B4-9517-4418-AB32-88AED2C0484D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B2521B4-9517-4418-AB32-88AED2C0484D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{094B861C-DA08-4CFE-8727-495A7B3A25A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{094B861C-DA08-4CFE-8727-495A7B3A25A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{094B861C-DA08-4CFE-8727-495A7B3A25A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{094B861C-DA08-4CFE-8727-495A7B3A25A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C00EA24C-C780-4294-B2F8-85201BDA50AA}
+	EndGlobalSection
+EndGlobal

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Forex.Service.Services;
 using Forex.UI.ViewModels;
 
 namespace Forex.UI
@@ -8,7 +9,10 @@ namespace Forex.UI
         public MainWindow()
         {
             this.InitializeComponent();
-            this.DataContext = new MainViewModel();
+
+            IForexServiceConfiguration forexServiceConfiguration = new ForexServiceConfiguration();
+            IForexService forexService = new ForexService(forexServiceConfiguration);
+            this.DataContext = new MainViewModel(forexService);
         }
     }
 }

@@ -4,21 +4,25 @@ using System.Linq;
 using System.Windows.Input;
 using Forex.Service.Model;
 using Forex.Service.Services;
+using Forex.Service.Services.Exceptions;
 
 namespace Forex.UI.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        private readonly IForexService forexService;
         private string statusMessage;
 
-        public MainViewModel()
+        public MainViewModel(IForexService forexService)
         {
-            this.Quotes = new ObservableCollection<Quote>();
+            this.forexService = forexService;
+
+            this.Quotes = new ObservableCollection<QuoteDto>();
             this.RefreshQuotesCommand = new DelegateCommand((o) => this.LoadQuotes());
             this.StatusMessage = "Ready. Press Refresh to get quotes.";
         }
 
-        public ObservableCollection<Quote> Quotes { get; }
+        public ObservableCollection<QuoteDto> Quotes { get; }
 
         public ICommand RefreshQuotesCommand { get; }
 
@@ -39,11 +43,10 @@ namespace Forex.UI.ViewModels
         {
             try
             {
-                IForexService forexService = new ForexService(new ForexServiceConfiguration());
-                var currencyPairs = new[] { "CHFUSD", "USDCHF", "CHFEUR", "EURCHF" };
+                var currencyPairs = new[] { "EUR_CHF", "CHF_EUR", };
 
                 this.StatusMessage = $"{DateTime.Now:s} Getting quotes...";
-                var quotes = (await forexService.GetQuotes(currencyPairs)).ToList();
+                var quotes = (await this.forexService.GetQuotesAsync(currencyPairs)).ToList();
 
                 this.Quotes.Clear();
                 foreach (var quote in quotes)
@@ -52,6 +55,10 @@ namespace Forex.UI.ViewModels
                 }
 
                 this.StatusMessage = $"{DateTime.Now:s} Successfully got quotes";
+            }
+            catch (QuoteRequestException qrex)
+            {
+                this.StatusMessage = $"Error status {qrex.Status}: {qrex.Message}";
             }
             catch (Exception ex)
             {

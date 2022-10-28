@@ -6,6 +6,6 @@ namespace Forex.Service.Services
 {
     public interface IForexService
     {
-        Task<IEnumerable<Quote>> GetQuotes(string[] pairs);
+        Task<IEnumerable<QuoteDto>> GetQuotesAsync(string[] pairs);
     }
 }
